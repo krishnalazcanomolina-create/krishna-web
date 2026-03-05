@@ -2,98 +2,93 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Krishna Lazcano - Página Personal</title>
+<title>Krishna Lazcano Molina</title>
 
 <style>
 
 body{
 font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#f3ebe2,#e5d5c5);
 margin:0;
-background: linear-gradient(135deg,#f5eee6,#e3d5ca);
-color:#3e2c23;
-animation: aparecer 1s ease;
+padding:0;
+animation: aparecer 1.5s;
 }
 
 @keyframes aparecer{
-from{opacity:0;}
-to{opacity:1;}
+from{opacity:0}
+to{opacity:1}
 }
 
-header{
+.contenedor{
+max-width:900px;
+margin:auto;
+padding:40px;
+}
+
+.perfil{
 text-align:center;
-padding:50px;
-background:#d6c1a5;
+margin-bottom:40px;
+animation: bajar 1.2s;
 }
 
-header img{
-width:180px;
-height:180px;
+@keyframes bajar{
+from{transform:translateY(-40px);opacity:0}
+to{transform:translateY(0);opacity:1}
+}
+
+.perfil img{
+width:190px;
+height:190px;
 border-radius:50%;
 object-fit:cover;
-border:6px solid white;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+border:6px solid #8b6f5c;
+box-shadow:0 12px 25px rgba(0,0,0,0.25);
+transition:0.4s;
 }
 
-header h1{
+.perfil img:hover{
+transform:scale(1.05);
+}
+
+h1{
 margin-top:15px;
-font-size:34px;
+color:#4b3a2f;
+font-size:32px;
 }
 
-header p{
-font-size:18px;
-color:#4b362b;
-}
-
-.container{
-width:90%;
-max-width:950px;
-margin:auto;
-margin-top:35px;
-}
-
-.section{
+.bloque{
 background:white;
-padding:25px;
+padding:30px;
 margin-bottom:25px;
-border-radius:15px;
-box-shadow:0 6px 18px rgba(0,0,0,0.1);
-transition:transform 0.2s;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
+transition:0.4s;
+animation: subir 1s;
 }
 
-.section:hover{
-transform:scale(1.02);
+@keyframes subir{
+from{transform:translateY(40px);opacity:0}
+to{transform:translateY(0);opacity:1}
 }
 
-.section h2{
-color:#7a5c44;
-border-left:6px solid #c7a17a;
-padding-left:10px;
+.bloque:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.18);
+}
+
+h2{
+color:#6b4f3f;
+border-bottom:2px solid #e6d5c6;
+padding-bottom:8px;
+}
+
+p{
+line-height:1.7;
+color:#333;
 }
 
 ul{
 line-height:1.7;
-}
-
-.skill{
-margin-bottom:10px;
-}
-
-.bar{
-background:#eee;
-border-radius:20px;
-overflow:hidden;
-}
-
-.progress{
-background:#c7a17a;
-height:10px;
-}
-
-footer{
-text-align:center;
-padding:25px;
-margin-top:30px;
-color:#6b4e3d;
 }
 
 </style>
@@ -101,33 +96,33 @@ color:#6b4e3d;
 
 <body>
 
-<header>
+<div class="contenedor">
 
+<div class="perfil">
 <img src="foto.jpg">
-
 <h1>Krishna Siarela Lazcano Molina</h1>
+</div>
 
-<p>Estudiante de Ingeniería de Sistemas</p>
-
-</header>
-
-<div class="container">
-
-<div class="section">
-<h2>Datos Personales</h2>
+<div class="bloque">
+<h2>📋 Datos Personales</h2>
 
 <p><b>Edad:</b> 18 años</p>
 <p><b>Sexo:</b> Femenino</p>
-<p><b>Correo electrónico:</b> krishnalazcanomolina@gmail.com</p>
-<p><b>Celular:</b> 69668115</p>
-<p><b>Número de referencia:</b> 77863687</p>
-<p><b>Idiomas:</b> Español</p>
-<p><b>Trabajo:</b> Actualmente no trabajo</p>
+<p><b>📧 Correo electrónico:</b> krishnalazcanomolina@gmail.com</p>
+<p><b>📱 Número de celular:</b> 69668115</p>
+<p><b>📌 Número de referencia:</b> 77863687</p>
 
 </div>
 
-<div class="section">
-<h2>Formación Académica</h2>
+<div class="bloque">
+<h2>🌎 Idiomas</h2>
+
+<p>Español</p>
+
+</div>
+
+<div class="bloque">
+<h2>🎓 Formación Académica</h2>
 
 <p><b>Nivel inicial:</b> Kinder Mariscal Andrés de Santa Cruz (Potosí)</p>
 
@@ -142,67 +137,48 @@ color:#6b4e3d;
 
 </div>
 
-<div class="section">
-<h2>Logros Académicos</h2>
+<div class="bloque">
+<h2>🏆 Logros Académicos</h2>
 
 <ul>
-<li>Diploma de Honor – 2.º lugar (1.º a 4.º de primaria)</li>
-<li>Diploma de Honor – 1.er lugar (5.º y 6.º de primaria)</li>
-<li>Diploma de Honor – 2.º lugar (1.º y 2.º de secundaria)</li>
-<li>Diploma de Honor – 3.er lugar (3.º de secundaria)</li>
+<li>Diploma de Honor – 2° lugar (1ro a 4to de primaria)</li>
+<li>Diploma de Honor – 1° lugar (5to y 6to de primaria)</li>
+<li>Diploma de Honor – 2° lugar (1ro a 2do de secundaria)</li>
+<li>Diploma de Honor – 3° lugar (3ro de secundaria)</li>
 </ul>
 
 </div>
 
-<div class="section">
-<h2>Destrezas y Habilidades</h2>
-Es
-<ul>
-<li>Responsabilidad en mis estudios</li>
-<li>Perseverancia para alcanzar mis metas</li>
-<li>Compromiso con mi formación académica</li>
-<li>Interés por la tecnología y el aprendizaje continuo</li>
+<div class="bloque">
+<h2>💼 Experiencia Profesional</h2>
 
+<p>No cuento con experiencia profesional.
 </div>
 
-<div class="section">
-<h2>Habilidades que necesito desarrollar</h2>
+<div class="bloque">
+<h2>🚀 Motivación</h2>
 
-<ul>
-<li>Fortalecer mi disciplina académica</li>
-<li>Mejorar mi confianza en mí misma</li>
-<li>Desarrollar más el pensamiento lógico</li>
-<li>Incrementar mi constancia frente a los retos</li>
-<li>Adquirir habilidades en programación y desarrollo de sistemas</li>
-<li>Aprender nuevas tecnologías y herramientas digitales</li>
-</ul>
+<p>Decidí estudiar Ingeniería de Sistemas porque la tecnología actualmente es una parte muy importante de nuestra vida diaria. Muchas de las cosas que usamos todos los días funcionan gracias a sistemas tecnológicos, como las aplicaciones del celular, las redes sociales, las plataformas educativas, los sistemas de los bancos y muchas herramientas que utilizan las empresas.</p>
 
-</div>
+<p>Por eso me llamó la atención entender cómo funcionan todos esos sistemas y cómo se crean. No solo me interesa usar la tecnología, sino también aprender cómo se diseñan los programas, cómo se desarrollan las aplicaciones y cómo se pueden mejorar para que funcionen de una mejor manera.</p>
 
-<div class="section">
-<h2>Motivación</h2>
+<p>La Ingeniería de Sistemas permite aprender sobre programación, desarrollo de software, manejo de información y solución de problemas utilizando la tecnología. Me parece interesante poder adquirir esos conocimientos y aplicarlos en diferentes áreas.</p>
 
-<p>
-Decidí estudiar Ingeniería de Sistemas porque la tecnología es una parte fundamental de nuestra vida actual, ya que todo funciona a través de sistemas: las aplicaciones, las empresas, los bancos, la educación. Me interesa entender cómo se diseñan y desarrollan estos sistemas y cómo pueden utilizarse para resolver problemas reales.
-Además, considero que es una carrera con muchas oportunidades de crecimiento profesional, ya que la tecnología sigue avanzando constantemente. Me motiva la idea de poder innovar, crear soluciones y adaptarme a los cambios tecnológicos.
-</p>
+<p>Además, considero que es una carrera con muchas oportunidades laborales, ya que la tecnología sigue avanzando constantemente y cada vez más empresas necesitan sistemas para funcionar. Algo que también me parece interesante es que en esta profesión muchas veces se puede trabajar de manera remota, es decir, desde casa, utilizando una computadora y conexión a internet.</p>
+
+<p>También me motiva la idea de poder crear soluciones tecnológicas que ayuden a las personas o que faciliten el trabajo en diferentes organizaciones. Me gustaría en el futuro poder desarrollar programas o sistemas que aporten algo útil a la sociedad.</p>
+
+<p>Además, estudiar esta carrera me permitirá seguir aprendiendo constantemente, ya que la tecnología siempre está cambiando y evolucionando. Por eso considero que Ingeniería de Sistemas es una buena opción para mi futuro profesional y personal.</p>
 
 </div>
+<div class="bloque">
+<h2>💡 Área de trabajo de interés</h2>
 
-<div class="section">
-<h2>Área de Trabajo</h2>
-
-<p>
-Aún no tengo definido en qué área específica me gustaría trabajar, pero considero que a medida que avance en la carrera y adquiera más conocimientos, podré descubrir el campo en el que mejor desarrolle mis habilidades.
-</p>
+<p>Aún no tengo definido en qué área específica me gustaría trabajar; considero que a medida que avance en la carrera y adquiera más conocimientos, podré descubrir el campo en el que mejor desarrolle mis habilidades.</p>
 
 </div>
 
 </div>
-
-<footer>
-Página personal de Krishna Lazcano
-</footer>
 
 </body>
 </html>
