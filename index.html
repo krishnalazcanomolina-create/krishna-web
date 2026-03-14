@@ -1,94 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
-<title>Krishna Lazcano Molina</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krishna Siarela Lazcano Molina</title>
 
 <style>
 
+:root{
+--color1:#6b4f3f;
+--color2:#8b6f5c;
+--fondo:#f5eee6;
+--texto:#333;
+}
+
+@media (prefers-color-scheme: dark){
+:root{
+--fondo:#1e1e1e;
+--texto:#f0f0f0;
+}
+}
+
 body{
-font-family: 'Segoe UI', sans-serif;
-background: linear-gradient(135deg,#f3ebe2,#e5d5c5);
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:var(--fondo);
+color:var(--texto);
+scroll-behavior:smooth;
+}
+
+/* fondo partículas */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* menú */
+
+nav{
+background:var(--color1);
+padding:15px;
+position:sticky;
+top:0;
+z-index:10;
+}
+
+nav ul{
+display:flex;
+justify-content:center;
+gap:25px;
+list-style:none;
 margin:0;
 padding:0;
-animation: aparecer 1.5s;
+flex-wrap:wrap;
 }
 
-@keyframes aparecer{
-from{opacity:0}
-to{opacity:1}
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
 }
+
+nav a:hover{
+color:#ffd9b3;
+}
+
+/* contenedor */
 
 .contenedor{
-max-width:900px;
+max-width:950px;
 margin:auto;
 padding:40px;
 }
 
+/* perfil */
+
 .perfil{
 text-align:center;
 margin-bottom:40px;
-animation: bajar 1.2s;
-}
-
-@keyframes bajar{
-from{transform:translateY(-40px);opacity:0}
-to{transform:translateY(0);opacity:1}
+perspective:1000px;
 }
 
 .perfil img{
-width:190px;
-height:190px;
+width:200px;
+height:200px;
 border-radius:50%;
+border:6px solid var(--color2);
 object-fit:cover;
-border:6px solid #8b6f5c;
-box-shadow:0 12px 25px rgba(0,0,0,0.25);
 transition:0.4s;
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
 }
 
 .perfil img:hover{
-transform:scale(1.05);
+transform:rotateY(10deg) rotateX(10deg) scale(1.05);
 }
 
-h1{
-margin-top:15px;
-color:#4b3a2f;
-font-size:32px;
+/* nombre animado */
+
+.nombre{
+font-size:34px;
+color:var(--color1);
+border-right:3px solid;
+white-space:nowrap;
+overflow:hidden;
+margin:auto;
+width:fit-content;
+animation:escribir 4s steps(30), parpadeo 1s infinite;
 }
+
+@keyframes escribir{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes parpadeo{
+50%{border-color:transparent}
+}
+
+/* bloques */
 
 .bloque{
 background:white;
 padding:30px;
-margin-bottom:25px;
-border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,0.1);
+margin-bottom:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
 transition:0.4s;
-animation: subir 1s;
+opacity:0;
+transform:translateY(40px);
 }
 
-@keyframes subir{
-from{transform:translateY(40px);opacity:0}
-to{transform:translateY(0);opacity:1}
+.bloque.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 .bloque:hover{
 transform:translateY(-6px);
-box-shadow:0 15px 35px rgba(0,0,0,0.18);
 }
 
 h2{
-color:#6b4f3f;
-border-bottom:2px solid #e6d5c6;
+color:var(--color1);
+border-bottom:2px solid #e5d4c4;
 padding-bottom:8px;
 }
 
 p{
 line-height:1.7;
-color:#333;
 }
 
 ul{
 line-height:1.7;
+}
+
+/* botón */
+
+.boton{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:var(--color2);
+color:white;
+border-radius:8px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.boton:hover{
+background:#5c4437;
+}
+
+/* contacto */
+
+.contacto{
+text-align:center;
+font-size:20px;
+}
+
+.contacto a{
+margin:10px;
+text-decoration:none;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#777;
 }
 
 </style>
@@ -96,89 +198,172 @@ line-height:1.7;
 
 <body>
 
+<canvas id="fondo"></canvas>
+
+<nav>
+<ul>
+<li><a href="#datos">Datos</a></li>
+<li><a href="#idiomas">Idiomas</a></li>
+<li><a href="#formacion">Formación</a></li>
+<li><a href="#logros">Logros</a></li>
+<li><a href="#experiencia">Experiencia</a></li>
+<li><a href="#habilidades">Habilidades</a></li>
+<li><a href="#motivacion">Motivación</a></li>
+<li><a href="#area">Área</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+
 <div class="contenedor">
 
 <div class="perfil">
 <img src="foto.jpg">
-<h1>Krishna Siarela Lazcano Molina</h1>
+<h1 class="nombre">Krishna Siarela Lazcano Molina</h1>
+
 </div>
 
-<div class="bloque">
+<div class="bloque" id="datos">
 <h2>📋 Datos Personales</h2>
-
 <p><b>Edad:</b> 18 años</p>
 <p><b>Sexo:</b> Femenino</p>
-<p><b>📧 Correo electrónico:</b> krishnalazcanomolina@gmail.com</p>
-<p><b>📱 Número de celular:</b> 69668115</p>
-<p><b>📌 Número de referencia:</b> 77863687</p>
-
+<p><b>Correo:</b> krishnalazcanomolina@gmail.com</p>
+<p><b>Celular:</b> 69668115</p>
+<p><b>Referencia:</b> 77863687</p>
 </div>
 
-<div class="bloque">
+<div class="bloque" id="idiomas">
 <h2>🌎 Idiomas</h2>
-
 <p>Español</p>
-
 </div>
 
-<div class="bloque">
+<div class="bloque" id="formacion">
 <h2>🎓 Formación Académica</h2>
-
+<ul>
 <p><b>Nivel inicial:</b> Kinder Mariscal Andrés de Santa Cruz (Potosí)</p>
-
-<p><b>Nivel primario:</b> Unidad Educativa Litoral (Potosí)</p>
-
+<p><b>Nivel primario:</b> Unidad Educativa Litoral (Potosi)</p>
 <p><b>Nivel secundario:</b></p>
-
 <ul>
-<li>1ro a 3ro: Colegio Nacional Mixto Litoral</li>
-<li>4to a 6to: Colegio Bernardo Monteagudo</li>
+<li>1ro a 3ro: Colegio Nacional Mixto Litoral (Potosi)</li>
+<li>4to a 6to: Colegio Nacional Bernardo Monteagudo (Sucre)</li>
 </ul>
-
 </div>
 
-<div class="bloque">
+<div class="bloque" id="logros">
 <h2>🏆 Logros Académicos</h2>
-
 <ul>
-<li>Diploma de Honor – 2° lugar (1ro a 4to de primaria)</li>
-<li>Diploma de Honor – 1° lugar (5to y 6to de primaria)</li>
-<li>Diploma de Honor – 2° lugar (1ro a 2do de secundaria)</li>
-<li>Diploma de Honor – 3° lugar (3ro de secundaria)</li>
+<li>Diploma de Honor – 2° lugar (1ro a 4to primaria)</li>
+<li>Diploma de Honor – 1° lugar (5to y 6to primaria)</li>
+<li>Diploma de Honor – 2° lugar (1ro y 2do secundaria)</li>
+<li>Diploma de Honor – 3° lugar (3ro secundaria)</li>
 </ul>
-
 </div>
 
-<div class="bloque">
+<div class="bloque" id="experiencia">
 <h2>💼 Experiencia Profesional</h2>
-
-<p>No cuento con experiencia profesional.
+<p>No cuento con experiencia profesional.</p>
 </div>
 
-<div class="bloque">
+<div class="bloque" id="habilidades">
+<h2>💻 Habilidades</h2>
+<ul>
+<li>Responsabilidad con mis estudios</li>
+<li>Empatía</li>
+<li>Perseverancia para alcanzar metas</li>
+<li>Interés por aprender y mejorar conocimientos</li>
+<li>Compromiso con mi formación académica</li>
+</ul>
+</div>
+
+<div class="bloque" id="motivacion">
 <h2>🚀 Motivación</h2>
 
 <p>Decidí estudiar Ingeniería de Sistemas porque la tecnología actualmente es una parte muy importante de nuestra vida diaria. Muchas de las cosas que usamos todos los días funcionan gracias a sistemas tecnológicos, como las aplicaciones del celular, las redes sociales, las plataformas educativas, los sistemas de los bancos y muchas herramientas que utilizan las empresas.</p>
-
-<p>Por eso me llamó la atención entender cómo funcionan todos esos sistemas y cómo se crean. No solo me interesa usar la tecnología, sino también aprender cómo se diseñan los programas, cómo se desarrollan las aplicaciones y cómo se pueden mejorar para que funcionen de una mejor manera.</p>
-
-<p>La Ingeniería de Sistemas permite aprender sobre programación, desarrollo de software, manejo de información y solución de problemas utilizando la tecnología. Me parece interesante poder adquirir esos conocimientos y aplicarlos en diferentes áreas.</p>
-
-<p>Además, considero que es una carrera con muchas oportunidades laborales, ya que la tecnología sigue avanzando constantemente y cada vez más empresas necesitan sistemas para funcionar. Algo que también me parece interesante es que en esta profesión muchas veces se puede trabajar de manera remota, es decir, desde casa, utilizando una computadora y conexión a internet.</p>
-
-<p>También me motiva la idea de poder crear soluciones tecnológicas que ayuden a las personas o que faciliten el trabajo en diferentes organizaciones. Me gustaría en el futuro poder desarrollar programas o sistemas que aporten algo útil a la sociedad.</p>
-
-<p>Además, estudiar esta carrera me permitirá seguir aprendiendo constantemente, ya que la tecnología siempre está cambiando y evolucionando. Por eso considero que Ingeniería de Sistemas es una buena opción para mi futuro profesional y personal.</p>
-
-</div>
-<div class="bloque">
-<h2>💡 Área de trabajo de interés</h2>
-
-<p>Aún no tengo definido en qué área específica me gustaría trabajar; considero que a medida que avance en la carrera y adquiera más conocimientos, podré descubrir el campo en el que mejor desarrolle mis habilidades.</p>
-
+<p>Por eso me llamó la atención entender cómo funcionan todos esos sistemas y cómo se crean. No solo me interesa usar la tecnología, sino también aprender cómo se diseñan los programas, cómo se desarrollan las aplicaciones y cómo se pueden mejorar para que funcionen de una mejor manera.<p>
+<p>La Ingeniería de Sistemas permite aprender sobre programación, desarrollo de software, manejo de información y solución de problemas utilizando la tecnología. Me parece interesante poder adquirir esos conocimientos y aplicarlos en diferentes áreas.<p>
+<p>Además, considero que es una carrera con muchas oportunidades laborales, ya que la tecnología sigue avanzando constantemente y cada vez más empresas necesitan sistemas para funcionar. Algo que también me parece interesante es que en esta profesión muchas veces se puede trabajar de manera remota, es decir, desde casa, utilizando una computadora y conexión a internet.<p>
+<p>Me motiva la idea de poder crear soluciones tecnológicas que ayuden a las personas o que faciliten el trabajo en diferentes organizaciones. Me gustaría en el futuro poder desarrollar programas o sistemas que aporten algo útil a la sociedad.<p>
+<p>Estudiar esta carrera me permitirá seguir aprendiendo constantemente, ya que la tecnología siempre está cambiando y evolucionando. Por eso considero que Ingeniería de Sistemas es una buena opción para mi futuro profesional y personal.<p>
+<p>También pienso que esta carrera me permitirá desarrollar habilidades importantes como el pensamiento lógico, la capacidad de analizar problemas y buscar soluciones eficientes. Estas habilidades no solo son útiles en el ámbito profesional, sino también en la vida diaria.<p>
+<p>Otra razón por la que me interesa esta carrera es porque la tecnología está presente en casi todos los sectores, como la educación, la salud, el comercio, la industria y la comunicación. Esto significa que un ingeniero de sistemas puede trabajar en diferentes áreas y participar en proyectos muy variados.<p>
+<p>Asimismo, me parece interesante aprender sobre bases de datos, redes, seguridad informática y desarrollo de sistemas, ya que todos estos elementos forman parte del funcionamiento de la tecnología actual. Con estos conocimientos se pueden crear herramientas que ayuden a mejorar la organización y el manejo de la información.<p>
+<p>También considero que estudiar Ingeniería de Sistemas me dará la oportunidad de participar en proyectos innovadores y trabajar en equipo con otras personas para desarrollar nuevas soluciones tecnológicas. Esto puede contribuir al crecimiento de las empresas y también al desarrollo de la sociedad.<p>
+<p>Por otra parte, me gustaría aprender a crear programas que faciliten algunas tareas diarias, ya sea en empresas, instituciones o incluso para el uso personal de las personas. De esta manera, la tecnología puede convertirse en una herramienta que mejore la eficiencia y la productividad.<p>
+<p>Finalmente, estudiar Ingeniería de Sistemas representa para mí una oportunidad de crecimiento personal y profesional. Me permitirá adquirir nuevos conocimientos, enfrentar retos y adaptarme a los cambios tecnológicos que se presentan constantemente en el mundo actual. Por todas estas razones considero que esta carrera es una buena elección para mi futuro.<p>
 </div>
 
+<div class="bloque" id="area">
+<h2>💡 Área de trabajo</h2>
+<p>Aún no tengo definida en qué área especifica me gustaria trabajar, considero que a medida que avance en la carrera y adquiera más conocimientos podré descubrir el área en el que mejor desarrolle mis habilidades.</p>
 </div>
+
+<div class="bloque contacto" id="contacto">
+<h2>📞 Contacto</h2>
+
+<p>📧 krishnalazcanomolina@gmail.com</p>
+<p>📱 69668115</p>
+
+</div>
+
+</div>
+
+<footer>
+Página personal – Krishna Siarela Lazcano Molina
+</footer>
+
+<script>
+
+const bloques=document.querySelectorAll(".bloque");
+
+window.addEventListener("scroll",()=>{
+bloques.forEach(b=>{
+const pos=b.getBoundingClientRect().top;
+const pantalla=window.innerHeight-100;
+
+if(pos<pantalla){
+b.classList.add("visible");
+}
+});
+});
+
+/* partículas */
+
+const canvas=document.getElementById("fondo");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particulas=[];
+
+for(let i=0;i<60;i++){
+particulas.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+v:Math.random()*0.5
+});
+}
+
+function animar(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particulas.forEach(p=>{
+p.y+=p.v;
+
+if(p.y>canvas.height)p.y=0;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#8b6f5c";
+ctx.fill();
+});
+
+requestAnimationFrame(animar);
+}
+
+animar();
+
+</script>
 
 </body>
 </html>
